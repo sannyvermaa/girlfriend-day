@@ -167,51 +167,7 @@ function openGift() {
     giftOpened = true;
 
     
-    /*=========================================
-START MUSIC AFTER GIFT CLICK
-=========================================*/
-
-if (backgroundMusic) {
-
-    backgroundMusic
-        .play()
-        .then(() => {
-
-            if (musicToggle) {
-
-                musicToggle.textContent = "⏸️";
-
-                musicToggle.setAttribute(
-                    "aria-label",
-                    "Pause music"
-                );
-
-            }
-
-            if (musicStatus) {
-
-                musicStatus.textContent =
-                    "Now playing for you ❤️";
-
-            }
-
-            if (musicPlayer) {
-
-                musicPlayer.classList.add("playing");
-
-            }
-
-        })
-        .catch((error) => {
-
-            console.warn(
-                "Music could not start:",
-                error
-            );
-
-        });
-
-}
+    
 
 
     if (giftBox) {
@@ -758,9 +714,7 @@ momentCards.forEach((card) => {
             "";
 
     });
-
-});
-/*=========================================
+    /*=========================================
 BACKGROUND MUSIC
 =========================================*/
 
@@ -777,87 +731,58 @@ const musicStatus =
     document.getElementById("musicStatus");
 
 
-/*=========================================
-PLAY / PAUSE
-=========================================*/
-
 if (backgroundMusic && musicToggle) {
 
-    musicToggle.addEventListener("click", async () => {
+    musicToggle.addEventListener("click", () => {
 
-        try {
+        if (backgroundMusic.paused) {
 
-            if (backgroundMusic.paused) {
+            backgroundMusic
+                .play()
+                .then(() => {
 
-                await backgroundMusic.play();
+                    musicToggle.textContent = "⏸️";
 
-                musicToggle.textContent = "⏸️";
+                    musicToggle.setAttribute(
+                        "aria-label",
+                        "Pause music"
+                    );
 
-                musicToggle.setAttribute(
-                    "aria-label",
-                    "Pause music"
-                );
+                    if (musicStatus) {
 
-                if (musicStatus) {
+                        musicStatus.textContent =
+                            "Now playing for you ❤️";
 
-                    musicStatus.textContent =
-                        "Now playing for you ❤️";
+                    }
 
-                }
+                    if (musicPlayer) {
 
-                if (musicPlayer) {
+                        musicPlayer.classList.add(
+                            "playing"
+                        );
 
-                    musicPlayer.classList.add("playing");
+                    }
 
-                }
+                })
+                .catch((error) => {
 
-            } else {
+                    console.error(
+                        "AUDIO PLAY ERROR:",
+                        error
+                    );
 
-                backgroundMusic.pause();
+                });
 
-                musicToggle.textContent = "🎵";
+        } else {
 
-                musicToggle.setAttribute(
-                    "aria-label",
-                    "Play music"
-                );
-
-                if (musicStatus) {
-
-                    musicStatus.textContent =
-                        "Play our little song ❤️";
-
-                }
-
-                if (musicPlayer) {
-
-                    musicPlayer.classList.remove("playing");
-
-                }
-
-            }
-
-        } catch (error) {
-
-            console.warn(
-                "Music could not be played:",
-                error
-            );
-
-        }
-
-    });
-
-
-    /*=========================================
-    MUSIC ENDED
-    =========================================*/
-
-    backgroundMusic.addEventListener(
-        "ended",
-        () => {
+            backgroundMusic.pause();
 
             musicToggle.textContent = "🎵";
+
+            musicToggle.setAttribute(
+                "aria-label",
+                "Play music"
+            );
 
             if (musicStatus) {
 
@@ -868,12 +793,16 @@ if (backgroundMusic && musicToggle) {
 
             if (musicPlayer) {
 
-                musicPlayer.classList.remove("playing");
+                musicPlayer.classList.remove(
+                    "playing"
+                );
 
             }
 
         }
-    );
+
+    });
 
 }
 
+});
