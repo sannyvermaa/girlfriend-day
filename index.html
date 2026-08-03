@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Girlfriend Day ❤️</title>
+
+    <meta
+        name="description"
+        content="Interactive Girlfriend Day Experience">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- GSAP -->
+
+    <script
+        defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js">
+    </script>
+
+    <script
+        defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js">
+    </script>
+
+
+<!-- Canvas Confetti -->
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js">
+</script>
+
+
+     <!-- JS -->
+
+    <script
+        defer
+        src="script.js">
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =======================================
+         LOADER
+    ======================================== -->
+
+    <div id="loader">
+
+        <div class="loader-heart">
+            ❤️
+        </div>
+
+        <p>
+            Loading...
+        </p>
+
+    </div>
+
+
+    <!-- =======================================
+         BACKGROUND
+    ======================================== -->
+
+    <div class="animated-bg">
+
+        <span class="circle c1"></span>
+
+        <span class="circle c2"></span>
+
+        <span class="circle c3"></span>
+
+    </div>
+
+
+    <!-- =======================================
+         LAPTOP INTRO
+    ======================================== -->
+
+    <section class="intro">
+
+        <div class="laptop-wrapper">
+
+            <div class="laptop">
+
+
+                <!-- LAPTOP SCREEN -->
+
+                <div class="laptop-screen">
+
+                    <div class="screen-glow"></div>
+
+
+                    <div class="screen-content">
+
+
+                        <div class="boot-logo">
+                            ❤️
+                        </div>
+
+
+                        <h1 class="title">
+
+                            Happy
+
+                            <span>
+                                Girlfriend Day
+                            </span>
+
+                        </h1>
+
+
+                        <p class="subtitle">
+
+                            I made something special
+                            just for you...
+
+                        </p>
+
+
+                        <button id="startBtn">
+
+                            Open Surprise ✨
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- LAPTOP BASE -->
+
+                <div class="laptop-base">
+
+                    <div class="keyboard">
+
+                        <div class="keys"></div>
+
+                    </div>
+
+
+                    <div class="trackpad"></div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =======================================
+         GIFT + LOVE LETTER SCREEN
+    ======================================== -->
+
+    <section
+        id="screenTwo"
+        class="screen-two">
+
+
+        <div class="gift-scene">
+
+
+            <!-- GIFT HEADING -->
+
+            <div class="gift-heading">
+
+                <span>
+                    ✨ A Little Surprise ✨
+                </span>
+
+
+                <h2>
+
+                    Something Special
+
+                    <strong>
+                        For You ❤️
+                    </strong>
+
+                </h2>
+
+
+                <p>
+
+                    I have something waiting for you...
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 GIFT BOX
+            ================================= -->
+
+            <div
+                class="gift-box"
+                id="giftBox"
+                role="button"
+                tabindex="0"
+                aria-label="Open your gift">
+
+
+                <div class="gift-glow"></div>
+
+
+                <div class="gift-lid">
+
+                    <div class="ribbon-horizontal"></div>
+
+                </div>
+
+
+                <div class="gift-body">
+
+                    <div class="ribbon-vertical"></div>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="gift-text">
+
+                Click the Gift 🎁
+
+            </p>
+
+
+
+            <!-- =================================
+                 LOVE LETTER
+            ================================= -->
+
+            <div
+                class="love-letter"
+                id="loveLetter">
+
+
+                <div class="letter-paper">
+
+
+                    <div class="letter-heart">
+
+                        ❤️
+
+                    </div>
+
+
+                    <p class="letter-small">
+
+                        A little message for you...
+
+                    </p>
+
+
+                    <h2>
+
+                        To My Special Person
+
+                    </h2>
+
+
+                    <div class="letter-line"></div>
+
+
+                    <p class="letter-message">
+
+                        You make ordinary moments feel special,
+                        and somehow every day becomes a little
+                        brighter with you, you're my sushine.
+
+                        <br>
+                        <br>
+
+                        I just wanted you to know that you are
+                        truly special to me. ❤️
+                        you're my everything, my forever.❤️
+
+                    </p>
+
+
+                    <p class="letter-sign">
+
+                        Forever & Always ❤️                                                     
+
+                        ❤️Prishaa❤️
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+    <!-- =========================================
+     OUR LITTLE MOMENTS
+========================================= -->
+
+<section id="moments" class="moments-section">
+
+    <div class="moments-container">
+
+        <p class="moments-small">
+            ✨ Our Little Moments ✨
+        </p>
+
+        <h2 class="moments-title">
+            Memories I Want To
+            <span>Keep Forever ❤️</span>
+        </h2>
+
+        <p class="moments-intro">
+            Some moments are too special to forget.
+        </p>
+
+
+        <div class="moments-grid">
+
+            <div class="moment-card">
+
+    <div class="moment-photo">
+
+    <img
+        src="assets/moment-1.jpg"
+        alt="Our first memory"
+    >
+
+    <span class="memory-badge">
+        ♡ MEMORY 01
+    </span>
+
+</div>
+
+<div class="memory-info">
+
+    <span class="memory-date">
+        A DAY TO REMEMBER
+    </span>
+
+    <h3>Our First Memory</h3>
+
+    <p>
+        A moment I'll always remember. ❤️
+    </p>
+
+</div>
+
+</div>
+
+            <div class="moment-card">
+
+    <div class="moment-photo">
+
+    <img
+        src="assets/moment-2.jpg"
+        alt="Our little moments"
+    >
+
+    <span class="memory-badge">
+        ♡ MEMORY 02
+    </span>
+
+</div>
+
+<div class="memory-info">
+
+    <span class="memory-date">
+        LITTLE THINGS
+    </span>
+
+    <h3>Little Things</h3>
+
+    <p>
+        The little moments mean the most. 💕
+    </p>
+
+</div>
+
+</div>
+
+
+            <div class="moment-card">
+
+    <div class="moment-photo">
+
+    <img
+        src="assets/moment-3.jpg"
+        alt="Beautiful days together"
+    >
+
+    <span class="memory-badge">
+        ♡ MEMORY 03
+    </span>
+
+</div>
+
+<div class="memory-info">
+
+    <span class="memory-date">
+        ANOTHER BEAUTIFUL DAY
+    </span>
+
+    <h3>Beautiful Days</h3>
+
+    <p>
+        More memories waiting to be made. 🌙
+    </p>
+
+</div>
+
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     PHOTO LIGHTBOX
+========================================= -->
+
+<div id="photoLightbox" class="photo-lightbox">
+
+    <button
+        id="lightboxClose"
+        class="lightbox-close"
+        aria-label="Close photo">
+        ×
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Memory preview">
+
+</div>
+
+<!-- =========================================
+     MUSIC PLAYER
+========================================= -->
+
+<div class="music-player" id="musicPlayer">
+
+    <button
+        class="music-toggle"
+        id="musicToggle"
+        type="button"
+        aria-label="Play music">
+
+        🎵
+
+    </button>
+
+    <div class="music-info">
+
+        <span class="music-label">
+            OUR SONG
+        </span>
+
+        <span class="music-status" id="musicStatus">
+            Play our little song ❤️
+        </span>
+
+    </div>
+
+</div>
+
+
+<audio
+    id="backgroundMusic"
+    src="assets/love-song.mp3"
+    loop
+    preload="auto">
+</audio>
+</body>
+
+</html>

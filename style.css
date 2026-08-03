@@ -1,0 +1,2716 @@
+/*====================================================
+Happy Girlfriend Day
+Version 2
+====================================================*/
+
+/*==========================
+RESET
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#09090f;
+    color:white;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+/*==========================
+ROOT
+==========================*/
+
+:root{
+
+    --pink:#ff5ea8;
+    --light:#ff9bc8;
+    --dark:#09090f;
+    --glass:rgba(255,255,255,.08);
+
+}
+
+/*==========================
+LOADER
+==========================*/
+
+#loader{
+
+    position:fixed;
+    inset:0;
+
+    background:#09090f;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:99999;
+    transition:.5s;
+
+}
+
+.loader-heart{
+
+    font-size:70px;
+
+    animation:pulse 1.2s infinite;
+
+}
+
+#loader p{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+}
+
+/*==========================
+BACKGROUND
+==========================*/
+
+.animated-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+.circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.4;
+
+    animation:float 12s ease-in-out infinite;
+
+}
+
+.c1{
+
+    width:420px;
+    height:420px;
+
+    background:#ff5ea8;
+
+    left:-150px;
+    top:-150px;
+
+}
+
+.c2{
+
+    width:350px;
+    height:350px;
+
+    background:#ff9bc8;
+
+    right:-120px;
+    top:15%;
+
+}
+
+.c3{
+
+    width:450px;
+    height:450px;
+
+    background:#ff75ba;
+
+    bottom:-180px;
+
+    left:35%;
+
+}
+
+/*==========================
+INTRO
+==========================*/
+
+.intro{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.laptop-wrapper{
+
+    perspective:1800px;
+
+}
+/*====================================================
+LAPTOP
+====================================================*/
+
+.laptop{
+
+    width:min(900px,90vw);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    transform-style:preserve-3d;
+
+}
+
+/*==========================
+SCREEN
+==========================*/
+
+.laptop-screen{
+
+    width:100%;
+
+    aspect-ratio:16/10;
+
+    background:#0d0d12;
+
+    border:10px solid #202028;
+
+    border-bottom:6px solid #18181d;
+
+    border-radius:22px 22px 8px 8px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.45),
+        inset 0 0 0 2px rgba(255,255,255,.05);
+
+}
+
+/* Camera */
+
+.laptop-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#333;
+
+}
+
+/*==========================
+SCREEN GLOW
+==========================*/
+
+.screen-glow{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+        rgba(255,94,168,.28),
+        transparent 65%);
+
+    animation:glow 4s ease-in-out infinite;
+
+}
+
+/*==========================
+SCREEN CONTENT
+==========================*/
+
+.screen-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.boot-logo{
+
+    font-size:80px;
+
+    margin-bottom:25px;
+
+    animation:pulse 2s infinite;
+
+}
+
+.title{
+
+    font-size:clamp(2.8rem,5vw,4.8rem);
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+
+}
+
+.title span{
+
+    display:block;
+
+    color:var(--pink);
+
+}
+
+.subtitle{
+
+    color:#cfcfcf;
+
+    font-size:1.1rem;
+
+    max-width:520px;
+
+    margin-bottom:40px;
+
+}
+/*====================================================
+START BUTTON
+====================================================*/
+
+#startBtn{
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:linear-gradient(135deg,#ff5ea8,#ff8fc8);
+
+    color:#fff;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 15px 35px rgba(255,94,168,.35);
+
+}
+
+#startBtn:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 25px 45px rgba(255,94,168,.45);
+
+}
+
+/*====================================================
+LAPTOP BASE
+====================================================*/
+
+.laptop-base{
+
+    width:108%;
+
+    height:32px;
+
+    background:linear-gradient(
+        to bottom,
+        #b8bcc7,
+        #8b919e
+    );
+
+    border-radius:0 0 30px 30px;
+
+    position:relative;
+
+    margin-top:-2px;
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.35);
+
+}
+
+.keyboard{
+
+    position:absolute;
+
+    left:50%;
+
+    top:4px;
+
+    transform:translateX(-50%);
+
+    width:82%;
+
+    height:12px;
+
+    background:#5f6470;
+
+    border-radius:10px;
+
+}
+
+.keys{
+
+    width:100%;
+
+    height:100%;
+
+    background:
+        repeating-linear-gradient(
+            to right,
+            #7b818d 0 10px,
+            transparent 10px 14px
+        );
+
+    border-radius:10px;
+
+    opacity:.7;
+
+}
+
+.trackpad{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:5px;
+
+    transform:translateX(-50%);
+
+    width:120px;
+
+    height:10px;
+
+    border-radius:20px;
+
+    background:#d8dbe3;
+
+}
+/*====================================================
+ANIMATIONS
+====================================================*/
+
+@keyframes pulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-30px);
+
+    }
+
+}
+
+@keyframes glow{
+
+    0%,100%{
+
+        opacity:.35;
+
+    }
+
+    50%{
+
+        opacity:.85;
+
+    }
+
+}
+/*====================================================
+RESPONSIVE
+====================================================*/
+
+@media(max-width:768px){
+
+    .title{
+
+        font-size:2.5rem;
+
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+
+    }
+
+    .laptop{
+
+        width:95vw;
+
+    }
+
+    .laptop-base{
+
+        width:112%;
+
+    }
+
+}
+/*====================================================
+NEXT SCREEN
+====================================================*/
+
+.screen-two{
+
+    position:fixed;
+
+    inset:0;
+    overflow-y:auto;
+overflow-x:hidden;
+padding:80px 20px;
+align-items:flex-start;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,94,168,.25),
+            transparent 60%
+        ),
+        #09090f;
+
+    display:flex;
+
+
+    justify-content:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:scale(1.08);
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease,
+        transform .8s ease;
+
+    z-index:1000;
+
+}
+
+.screen-two.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:scale(1);
+
+}
+
+.message-box{
+
+    width:min(600px,90%);
+
+    padding:60px 40px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+
+}
+
+.message-box h2{
+
+    font-size:clamp(2rem,5vw,3.5rem);
+
+    color:#ff5ea8;
+
+    margin-bottom:20px;
+
+}
+
+.message-box p{
+
+    color:#d5d5d5;
+
+    font-size:1.1rem;
+
+}
+/*=========================================
+BUTTON VISIBILITY FIX
+=========================================*/
+
+.screen-glow{
+    z-index:0;
+    pointer-events:none;
+}
+
+.screen-content{
+    z-index:10;
+}
+
+#startBtn{
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+
+    position:relative;
+    z-index:9999;
+
+    padding:16px 42px;
+
+    border:none;
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        #ff5ea8,
+        #ff8fc8
+    );
+
+    color:#fff;
+
+    font-family:'Poppins',sans-serif;
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 15px 35px rgba(255,94,168,.35);
+}
+/*====================================================
+GIFT SCENE
+====================================================*/
+
+.gift-scene{
+
+    width:min(900px,92%);
+
+    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/*====================================================
+GIFT HEADING
+====================================================*/
+
+.gift-heading span{
+
+    display:block;
+
+    color:#ff78b5;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+}
+
+.gift-heading h2{
+
+    font-size:clamp(2rem,5vw,3.8rem);
+
+    line-height:1.15;
+
+    margin-bottom:15px;
+
+}
+
+.gift-heading h2 strong{
+
+    display:block;
+
+    color:#ff5ea8;
+
+}
+
+.gift-heading p{
+
+    color:#d2d2d2;
+
+    font-size:1rem;
+
+}
+
+
+/*====================================================
+GIFT BOX
+====================================================*/
+
+.gift-box{
+
+    width:220px;
+
+    height:220px;
+
+    position:relative;
+
+    margin-top:55px;
+
+    cursor:pointer;
+
+    transform-style:preserve-3d;
+
+    perspective:1000px;
+
+    transition:
+        transform .35s ease;
+
+}
+
+.gift-box:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.04);
+
+}
+
+
+/*====================================================
+GIFT BODY
+====================================================*/
+
+.gift-body{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:220px;
+
+    height:160px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff5ea8,
+            #ff8fbd
+        );
+
+    border-radius:
+        0 0 22px 22px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(255,94,168,.3);
+
+}
+
+
+/*====================================================
+GIFT LID
+====================================================*/
+
+.gift-lid{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:220px;
+
+    height:70px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff78af,
+            #ffb8d5
+        );
+
+    border-radius:
+        20px 20px 8px 8px;
+
+    z-index:5;
+
+    transform-origin:
+        bottom center;
+
+    transform-style:preserve-3d;
+
+}
+
+
+/*====================================================
+RIBBONS
+====================================================*/
+
+.ribbon-vertical{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:26px;
+
+    height:100%;
+
+    background:#fff;
+
+}
+
+.ribbon-horizontal{
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:100%;
+
+    height:24px;
+
+    background:#fff;
+
+}
+
+
+/*====================================================
+GLOW
+====================================================*/
+
+.gift-glow{
+
+    position:absolute;
+
+    inset:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,94,168,.4),
+            transparent 65%
+        );
+
+    opacity:0;
+
+    transform:scale(.7);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+/*====================================================
+GIFT TEXT
+====================================================*/
+
+.gift-text{
+
+    margin-top:30px;
+
+    color:#ff78b5;
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+    animation:
+        giftPulse 2s ease-in-out infinite;
+
+}
+
+@keyframes giftPulse{
+
+    0%,100%{
+        transform:translateY(0);
+        opacity:.8;
+    }
+
+    50%{
+        transform:translateY(-5px);
+        opacity:1;
+    }
+
+}
+
+
+/*====================================================
+GIFT OPENED STATE
+====================================================*/
+
+.gift-box.opened{
+
+    cursor:default;
+
+}
+
+.gift-box.opened:hover{
+
+    transform:none;
+
+}
+
+
+/*====================================================
+MOBILE
+====================================================*/
+
+@media(max-width:600px){
+
+    .gift-heading h2{
+
+        font-size:2.1rem;
+
+    }
+
+    .gift-heading p{
+
+        font-size:.9rem;
+
+    }
+
+    .gift-box{
+
+        transform:scale(.85);
+
+        margin-top:35px;
+
+    }
+
+    .gift-box:hover{
+
+        transform:
+            translateY(-5px)
+            scale(.9);
+
+    }
+
+}
+/*====================================================
+LOVE LETTER
+====================================================*/
+
+.love-letter{
+
+    width:min(620px,92vw);
+
+    margin-top:60px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+        translateY(80px)
+        scale(.8);
+
+    pointer-events:none;
+
+}
+
+
+/*====================================================
+LETTER PAPER
+====================================================*/
+
+.letter-paper{
+
+    position:relative;
+
+    padding:50px 55px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff7fb
+        );
+
+    color:#30232b;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.35),
+
+        0 0 50px
+        rgba(255,94,168,.2);
+
+}
+
+
+/*====================================================
+LETTER HEART
+====================================================*/
+
+.letter-heart{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+    animation:
+        letterHeart 1.5s ease-in-out infinite;
+
+}
+
+@keyframes letterHeart{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+}
+
+
+/*====================================================
+LETTER TEXT
+====================================================*/
+
+.letter-small{
+
+    color:#ff5ea8;
+
+    font-size:.85rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+.letter-paper h2{
+
+    font-size:clamp(1.7rem,4vw,2.5rem);
+
+    color:#30232b;
+
+    margin-bottom:15px;
+
+}
+
+.letter-line{
+
+    width:70px;
+
+    height:3px;
+
+    margin:0 auto 25px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5ea8,
+            #ff9bc8
+        );
+
+}
+
+.letter-message{
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size:1rem;
+
+    line-height:1.9;
+
+    color:#5a4b53;
+
+}
+
+.letter-sign{
+
+    margin-top:30px;
+
+    color:#ff5ea8;
+
+    font-family:'Pacifico',cursive;
+
+    font-size:1.3rem;
+
+}
+
+
+/*====================================================
+LETTER DECORATION
+====================================================*/
+
+.letter-paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80px;
+
+    height:4px;
+
+    border-radius:20px;
+
+    background:#ffd1e3;
+
+}
+
+
+/*====================================================
+MOBILE
+====================================================*/
+
+@media(max-width:600px){
+
+    .love-letter{
+
+        margin-top:40px;
+
+    }
+
+    .letter-paper{
+
+        padding:35px 25px;
+
+    }
+
+    .letter-message{
+
+        font-size:.9rem;
+
+        line-height:1.75;
+
+    }
+
+}
+/*=========================================
+LOVE LETTER
+=========================================*/
+
+.love-letter {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(.75);
+
+    width: min(520px, 90vw);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 50;
+
+    perspective: 1200px;
+
+}
+
+
+.letter-paper {
+
+    position: relative;
+
+    padding: 45px 40px;
+
+    border-radius: 24px;
+
+    background: linear-gradient(
+        145deg,
+        #fff8fc,
+        #ffeef7
+    );
+
+    color: #2a1721;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        0 0 60px rgba(255,94,168,.25);
+
+    border: 1px solid rgba(255,255,255,.7);
+
+}
+
+
+/* Heart */
+
+.letter-heart {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    filter:
+        drop-shadow(
+            0 8px 15px
+            rgba(255,80,150,.3)
+        );
+
+}
+
+
+/* Small heading */
+
+.letter-small {
+
+    color: #b86a8c;
+
+    font-size: .85rem;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* Main heading */
+
+.letter-paper h2 {
+
+    font-family: "Pacifico", cursive;
+
+    color: #d83d7d;
+
+    font-size: clamp(
+        1.8rem,
+        5vw,
+        2.5rem
+    );
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Divider */
+
+.letter-line {
+
+    width: 80px;
+
+    height: 3px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #ff5ea8,
+        #ff9bc8
+    );
+
+}
+
+
+/* Message */
+
+.letter-message {
+
+    color: #593846;
+
+    font-size: .98rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* Signature */
+
+.letter-sign {
+
+    margin-top: 25px;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 1.3rem;
+
+    color: #d83d7d;
+
+}
+
+
+/*=========================================
+LOVE LETTER RESPONSIVE
+=========================================*/
+
+@media(max-width:600px){
+
+    .letter-paper {
+
+        padding: 35px 25px;
+
+    }
+
+    .letter-heart {
+
+        font-size: 45px;
+
+    }
+
+    .letter-message {
+
+        font-size: .9rem;
+
+        line-height: 1.7;
+
+    }
+
+}
+/*=========================================
+OUR LITTLE MOMENTS
+=========================================*/
+
+.moments-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,94,168,.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,155,200,.12),
+            transparent 35%
+        );
+
+}
+
+
+.moments-container {
+
+    width: min(1100px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+/* Small heading */
+
+.moments-small {
+
+    color: #ff8fc8;
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Main heading */
+
+.moments-title {
+
+    font-size: clamp(
+        2.2rem,
+        5vw,
+        4rem
+    );
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+
+}
+
+
+.moments-title span {
+
+    display: block;
+
+    color: var(--pink);
+
+}
+
+
+/* Intro */
+
+.moments-intro {
+
+    color: #cfcfcf;
+
+    font-size: 1rem;
+
+    margin-bottom: 55px;
+
+}
+
+
+/*=========================================
+MOMENTS GRID
+=========================================*/
+
+.moments-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/*=========================================
+MOMENT CARD
+=========================================*/
+
+.moment-card {
+
+    position: relative;
+
+    padding: 25px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border: 1px solid
+        rgba(255,255,255,.1);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.2);
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+    transition:
+        transform .45s cubic-bezier(.2,.7,.2,1),
+        box-shadow .45s ease,
+        border-color .45s ease;
+
+}
+
+
+.moment-card:hover {
+
+    transform:
+        translateY(-12px)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    box-shadow:
+        0 35px 80px
+        rgba(255,94,168,.22);
+
+    border-color:
+        rgba(255,94,168,.4);
+
+}
+
+
+.moment-card h3,
+.moment-card p {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/*=========================================
+IMAGE PLACEHOLDER
+=========================================*/
+
+.moment-placeholder {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    border-radius: 18px;
+
+    margin-bottom: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,94,168,.18),
+            rgba(255,155,200,.08)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+/* Card title */
+
+.moment-card h3 {
+
+    font-size: 1.2rem;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* Card text */
+
+.moment-card p {
+
+    color: #bdbdc7;
+
+    font-size: .9rem;
+
+    line-height: 1.6;
+
+}
+
+
+/*=========================================
+MOMENTS RESPONSIVE
+=========================================*/
+
+@media(max-width:850px){
+
+    .moments-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .moments-section {
+
+        padding:
+            90px 20px;
+
+    }
+
+
+    .moments-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .moment-card {
+
+        padding: 20px;
+
+    }
+
+
+    .moments-intro {
+
+        margin-bottom: 35px;
+
+    }
+
+}
+/*=========================================
+MOMENT PHOTOS
+=========================================*/
+
+.moment-photo {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    margin-bottom: 22px;
+
+    background: #181820;
+
+    position: relative;
+
+}
+
+
+/* Photo */
+
+.moment-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .7s cubic-bezier(.2,.7,.2,1),
+        filter .7s ease;
+
+}
+
+
+/* Hover effect */
+
+.moment-card:hover .moment-photo img {
+
+    transform: scale(1.08);
+
+    filter: brightness(1.08);
+
+}
+
+
+/* Soft shine */
+
+.moment-photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.12),
+            transparent 45%
+        );
+
+    opacity: 0;
+
+    transition: opacity .5s ease;
+
+}
+
+
+.moment-card:hover .moment-photo::after {
+
+    opacity: 1;
+
+}
+/*=========================================
+PHOTO LIGHTBOX
+=========================================*/
+
+.photo-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(5, 5, 10, .92);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+}
+
+
+.photo-lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+.photo-lightbox img {
+
+    max-width: min(900px, 90vw);
+
+    max-height: 85vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.6);
+
+}
+
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 30px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.12);
+
+    color: white;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+
+}
+
+
+.lightbox-close:hover {
+
+    transform: rotate(90deg) scale(1.08);
+
+    background: rgba(255,94,168,.35);
+
+}
+
+
+@media(max-width:600px){
+
+    .photo-lightbox {
+
+        padding: 18px;
+
+    }
+
+    .photo-lightbox img {
+
+        max-width: 94vw;
+
+        max-height: 78vh;
+
+        border-radius: 15px;
+
+    }
+
+    .lightbox-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: 28px;
+
+    }
+
+}
+/*=========================================
+MEMORY BADGE
+=========================================*/
+
+.memory-badge {
+
+    position: absolute;
+
+    top: 14px;
+
+    left: 14px;
+
+    z-index: 5;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(10,10,18,.65);
+
+    border: 1px solid
+        rgba(255,255,255,.16);
+
+    color: #fff;
+
+    font-size: .7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.25);
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
+
+}
+
+
+.moment-card:hover .memory-badge {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255,94,168,.72);
+
+}
+/*=========================================
+MEMORY INFO
+=========================================*/
+
+.memory-info {
+    padding-top: 2px;
+}
+
+
+.memory-date {
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    color: var(--light);
+
+    font-size: .68rem;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    opacity: .85;
+}
+
+
+.memory-info h3 {
+    margin-bottom: 8px;
+}
+
+
+.memory-info p {
+    color: #bdbdc7;
+
+    line-height: 1.7;
+
+    font-size: .9rem;
+}
+/*=========================================
+MOBILE GALLERY
+=========================================*/
+
+@media (max-width: 700px) {
+
+    .moments-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .moment-card {
+
+        padding: 18px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .moment-photo {
+
+        aspect-ratio: 4 / 3;
+
+        border-radius: 16px;
+
+    }
+
+
+    .memory-badge {
+
+        top: 11px;
+
+        left: 11px;
+
+        padding: 6px 10px;
+
+        font-size: .62rem;
+
+        letter-spacing: 1.2px;
+
+    }
+
+
+    .memory-info h3 {
+
+        font-size: 1.15rem;
+
+    }
+
+
+    .memory-info p {
+
+        font-size: .85rem;
+
+        line-height: 1.6;
+
+    }
+
+
+    /*
+       3D tilt mobile par disable.
+       Touchscreen par fixed hover transform
+       awkward feel kar sakta hai.
+    */
+
+    .moment-card:hover {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+/*=========================================
+MUSIC PLAYER
+=========================================*/
+
+.music-player {
+
+    position: fixed;
+
+    right: 22px;
+
+    bottom: 22px;
+
+    z-index: 9990;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 14px 10px 10px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(15, 15, 25, .72);
+
+    border: 1px solid
+        rgba(255,255,255,.14);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.3);
+
+}
+
+
+.music-toggle {
+
+    width: 46px;
+
+    height: 46px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5ea8,
+            #ff8fc4
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: grid;
+
+    place-items: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,94,168,.3);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.music-toggle:hover {
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 12px 32px
+        rgba(255,94,168,.45);
+
+}
+
+
+.music-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    padding-right: 3px;
+
+}
+
+
+.music-label {
+
+    font-size: .62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+
+    color: #ff8fc4;
+
+}
+
+
+.music-status {
+
+    font-size: .72rem;
+
+    color: rgba(255,255,255,.78);
+
+    white-space: nowrap;
+
+}
+
+
+/*=========================================
+MUSIC PLAYING ANIMATION
+=========================================*/
+
+.music-player.playing .music-toggle {
+
+    animation:
+        musicPulse 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes musicPulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+/*=========================================
+MOBILE MUSIC PLAYER
+=========================================*/
+
+@media (max-width: 600px) {
+
+    .music-player {
+
+        right: 14px;
+
+        bottom: 14px;
+
+        padding: 8px;
+
+    }
+
+
+    .music-info {
+
+        display: none;
+
+    }
+
+
+    .music-toggle {
+
+        width: 46px;
+
+        height: 46px;
+
+    }
+
+}
+/*=========================================
+FLOATING HEARTS
+=========================================*/
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: 35%;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        floatHeart 3.2s ease-out forwards;
+
+    filter:
+        drop-shadow(
+            0 5px 12px
+            rgba(255, 80, 150, .35)
+        );
+
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(20px)
+            scale(.4)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 1;
+
+    }
+
+    60% {
+
+        opacity: .9;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-260px)
+            scale(1.15)
+            rotate(
+                20deg
+            );
+
+        opacity: 0;
+
+    }
+
+}
+/*=========================================
+LOVE LETTER REVEAL POLISH
+=========================================*/
+
+.love-letter {
+
+    perspective: 1200px;
+
+}
+
+
+.letter-paper {
+
+    transform-origin: center top;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.28);
+
+}
+
+
+/*=========================================
+LETTER HEART
+=========================================*/
+
+.letter-heart {
+
+    display: inline-block;
+
+    filter:
+        drop-shadow(
+            0 8px 18px
+            rgba(255,80,150,.25)
+        );
+
+}
+
+
+/*=========================================
+LETTER MOBILE
+=========================================*/
+
+@media (max-width: 600px) {
+
+    .love-letter {
+
+        width: 100%;
+
+    }
+
+
+    .letter-paper {
+
+        width: min(
+            100%,
+            420px
+        );
+
+        margin-inline: auto;
+
+    }
+
+}
+/*=========================================
+LOVE LETTER PREMIUM POLISH
+=========================================*/
+
+.letter-paper {
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .30),
+        0 0 45px
+        rgba(255, 94, 168, .08);
+
+}
+
+
+/* Soft light across the paper */
+
+.letter-paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.12),
+            transparent 35%,
+            transparent 65%,
+            rgba(255,94,168,.06)
+        );
+
+}
+
+
+/* Keep content above the glow */
+
+.letter-paper > * {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/*=========================================
+LETTER HEART PULSE
+=========================================*/
+
+.letter-heart {
+
+    animation:
+        letterHeartPulse 2.2s ease-in-out infinite;
+
+}
+
+
+@keyframes letterHeartPulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+
+/*=========================================
+LETTER MESSAGE
+=========================================*/
+
+.letter-message {
+
+    line-height: 1.85;
+
+}
+
+
+/*=========================================
+LETTER SIGNATURE
+=========================================*/
+
+.letter-sign {
+
+    margin-top: 20px;
+
+    letter-spacing: .5px;
+
+}
+
+
+/*=========================================
+MOBILE LETTER
+=========================================*/
+
+@media (max-width: 600px) {
+
+    .letter-paper {
+
+        padding: 24px 20px;
+
+    }
+
+
+    .letter-message {
+
+        font-size: .9rem;
+
+        line-height: 1.75;
+
+    }
+
+
+    .letter-heart {
+
+        font-size: 2rem;
+
+    }
+
+}
+/*=========================================
+MOMENTS CINEMATIC POLISH
+=========================================*/
+
+.moments-section {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Soft ambient glow */
+
+.moments-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    top: 8%;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,94,168,.12),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* Keep content above ambient glow */
+
+.moments-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Heading polish */
+
+.moments-title {
+    letter-spacing: -.5px;
+}
+
+
+.moments-intro {
+    max-width: 620px;
+}
+
+
+/* Card entrance polish */
+
+.moment-card {
+    overflow: hidden;
+}
+
+
+/* Photo itself */
+
+.moment-photo {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Soft shine over image */
+
+.moment-photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.10),
+            transparent 35%,
+            transparent 70%,
+            rgba(255,94,168,.08)
+        );
+
+    opacity: .65;
+
+}
+
+
+/*=========================================
+MOBILE
+=========================================*/
+
+@media (max-width: 700px) {
+
+    .moments-section::before {
+
+        width: 300px;
+        height: 300px;
+
+        left: -150px;
+
+    }
+
+}
+/*=========================================
+PAGE TRANSITION POLISH
+=========================================*/
+
+.screen {
+    will-change: opacity, transform;
+}
+
+
+/* Smooth section content */
+
+.intro,
+.screen-two,
+.moments-section {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+
+/* Gift screen transition */
+
+.screen-two {
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+
+/* Prevent accidental horizontal scroll */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+
+/*=========================================
+REDUCED MOTION
+=========================================*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+
+    }
+
+}
+
+
+
+
+
+
+
